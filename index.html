@@ -3,450 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>독도 지리적 특성 및 다각적 가치 브리핑</title>
+    <title>독도 종합 브리핑</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
         
         body {
             font-family: 'Pretendard', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
+            scroll-behavior: smooth;
         }
 
-        .island-card:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        .gradient-ocean {
+            background: linear-gradient(180deg, #0f172a 0%, #1e40af 100%);
         }
 
-        .gradient-blue {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .tab-active {
-            border-bottom: 3px solid #2563eb;
-            color: #2563eb;
-            font-weight: 700;
+        .visibility-check {
+            transition: all 0.5s ease;
         }
 
-        .distance-bar {
-            height: 24px;
-            border-radius: 12px;
-            background: #e2e8f0;
-            overflow: hidden;
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .nav-link {
             position: relative;
         }
 
-        .distance-fill {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .timeline-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .timeline-fill {
             height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            transition: width 1s ease-out;
-        }
-
-        .pulse {
-            animation: pulse-animation 2s infinite;
-        }
-
-        @keyframes pulse-animation {
-            0% { box-shadow: 0 0 0 0px rgba(59, 130, 246, 0.4); }
-            100% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
+            background: #3b82f6;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen">
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- Header Section -->
-    <header class="gradient-blue text-white py-12 px-6 shadow-lg">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div>
-                    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">독도 종합 브리핑</h1>
-                    <p class="text-blue-100 text-lg max-w-2xl">
-                        동해의 수호자, 독도의 지리적 특성 및 다각적 가치를 분석한 종합 보고서입니다. 대한민국 최동단의 화산섬 독도의 진정한 가치를 확인하세요.
-                    </p>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-black text-2xl text-blue-800 flex items-center gap-2">
+                <span class="w-8 h-8 bg-blue-800 rounded-lg flex items-center justify-center text-white text-sm">獨</span>
+                DOKDO BRIEFING
+            </div>
+            <div class="hidden md:flex gap-8 font-semibold text-sm text-slate-600">
+                <a href="#location" class="nav-link">지리 및 가시성</a>
+                <a href="#admin" class="nav-link">물리 구성</a>
+                <a href="#territory" class="nav-link">국가 영역</a>
+                <a href="#nature" class="nav-link">자연 및 지질</a>
+                <a href="#value" class="nav-link">다각적 가치</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-6 gradient-ocean text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="z-10">
+                <span class="inline-block px-4 py-1 rounded-full bg-blue-500/30 border border-blue-400/50 text-blue-100 text-sm font-bold mb-6">대한민국 최동단 영토</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-tight">
+                    동해의 수호자,<br><span class="text-blue-400">독도의 진실</span>을 읽다
+                </h1>
+                <p class="text-lg text-blue-100/80 mb-10 leading-relaxed max-w-xl">
+                    독도는 단순한 섬이 아닙니다. 약 460만 년의 역사를 간직한 화산섬이자, 막대한 자원과 전략적 중요성을 지닌 대한민국의 핵심 영역입니다.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="bg-white/10 p-4 rounded-2xl border border-white/20 text-center flex-1 min-w-[120px]">
+                        <div class="text-blue-300 text-xs mb-1">전체 면적</div>
+                        <div class="text-xl font-bold">187,554㎡</div>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-2xl border border-white/20 text-center flex-1 min-w-[120px]">
+                        <div class="text-blue-300 text-xs mb-1">구성</div>
+                        <div class="text-xl font-bold">91개 도서</div>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-2xl border border-white/20 text-center flex-1 min-w-[120px]">
+                        <div class="text-blue-300 text-xs mb-1">매장 자원</div>
+                        <div class="text-xl font-bold">6억 톤</div>
+                    </div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center">
-                    <span class="block text-sm uppercase tracking-widest text-blue-200 mb-1">행정 구역</span>
-                    <span class="text-xl font-bold">경상북도 울릉군 울릉읍 독도리</span>
+            </div>
+            <div class="relative flex justify-center items-center">
+                <div class="w-80 h-80 bg-blue-400/20 rounded-full absolute blur-3xl"></div>
+                <div class="floating z-10 text-center bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl">
+                    <div class="text-8xl mb-4">🇰🇷</div>
+                    <h3 class="text-2xl font-bold">Dokdo Islet</h3>
+                    <p class="text-blue-300 text-sm mt-2">North 37° 14′ 26.8″<br>East 131° 52′ 10.4″</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Executive Summary Dashboard -->
-    <section class="max-w-6xl mx-auto -mt-8 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="bg-white p-6 rounded-xl shadow-md island-card border-b-4 border-blue-500">
-                <div class="text-blue-500 mb-2 font-bold text-sm">탄생 시기</div>
-                <div class="text-2xl font-black">약 460만 년 전</div>
-                <p class="text-xs text-gray-500 mt-1">울릉도·제조도보다 앞선 생성</p>
+    <!-- 1. Location & Visibility -->
+    <section id="location" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-black mb-4">1. 지리적 위치 및 가시성</h2>
+            <p class="text-slate-500">육안으로 확인 가능한 거리가 곧 생활권의 증거입니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <div class="p-6 bg-white rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-lg mb-6">주요 기점별 거리 데이터</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="font-semibold text-blue-700">울릉도 ↔ 독도 (가장 가까움)</span>
+                                <span class="font-bold">87.4 km</span>
+                            </div>
+                            <div class="h-4 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-600 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="font-semibold text-slate-600">오키섬(일본) ↔ 독도</span>
+                                <span class="font-bold">157.5 km</span>
+                            </div>
+                            <div class="h-4 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-slate-400 rounded-full" style="width: 72%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="font-semibold text-slate-600">울진 죽변 ↔ 독도</span>
+                                <span class="font-bold">216.8 km</span>
+                            </div>
+                            <div class="h-4 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-slate-300 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-blue-50 rounded-3xl border border-blue-100">
+                    <h3 class="font-bold text-blue-800 mb-4">가시성 분석 결론</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center shrink-0">O</div>
+                            <div>
+                                <p class="font-bold">울릉도: 육안 관측 가능</p>
+                                <p class="text-sm text-slate-600">역사적으로 독도가 울릉도 주민의 생활권 일부였음을 증명합니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 bg-red-400 text-white rounded-full flex items-center justify-center shrink-0">X</div>
+                            <div>
+                                <p class="font-bold">오키섬: 육안 관측 불가능</p>
+                                <p class="text-sm text-slate-600">거리상 물리적으로 확인이 불가능하며, 생활권 형성이 어렵습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-md island-card border-b-4 border-cyan-500">
-                <div class="text-cyan-500 mb-2 font-bold text-sm">전체 면적</div>
-                <div class="text-2xl font-black">187,554㎡</div>
-                <p class="text-xs text-gray-500 mt-1">잠실 종합운동장의 약 2배</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-md island-card border-b-4 border-indigo-500">
-                <div class="text-indigo-500 mb-2 font-bold text-sm">울릉도와의 거리</div>
-                <div class="text-2xl font-black">87.4km</div>
-                <p class="text-xs text-gray-500 mt-1">육안으로 관측 가능한 거리</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-md island-card border-b-4 border-emerald-500">
-                <div class="text-emerald-500 mb-2 font-bold text-sm">자원 잠재력</div>
-                <div class="text-2xl font-black">6억 톤</div>
-                <p class="text-xs text-gray-500 mt-1">가스 하이드레이트 추정 매장량</p>
+
+            <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col items-center justify-center p-12 text-white relative">
+                <div id="visibility-view" class="w-full text-center space-y-8">
+                    <h4 class="text-xl font-bold">수평선 가시성 시뮬레이션</h4>
+                    <div class="relative h-40 flex items-end justify-center overflow-hidden border-b border-blue-400/30">
+                        <!-- Sea and Island -->
+                        <div id="horizon-dokdo" class="w-16 h-8 bg-blue-500 rounded-t-full visibility-check opacity-100"></div>
+                        <div class="absolute bottom-0 w-full h-4 bg-blue-900/50"></div>
+                    </div>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="simulateVisibility('ulleung')" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full text-sm font-bold transition-all">울릉도 시점</button>
+                        <button onclick="simulateVisibility('oki')" class="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-full text-sm font-bold transition-all">오키섬 시점</button>
+                    </div>
+                    <p id="visibility-text" class="text-sm text-blue-300">울릉도에서는 맑은 날 독도를 선명하게 볼 수 있습니다.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Navigation Tabs -->
-    <nav class="max-w-6xl mx-auto mt-12 border-b border-gray-200 px-6">
-        <div class="flex flex-wrap gap-8">
-            <button onclick="showSection('geo')" id="tab-geo" class="pb-4 tab-active transition-all">지리 및 위치</button>
-            <button onclick="showSection('admin')" id="tab-admin" class="pb-4 text-gray-500 hover:text-blue-600 transition-all">행정 및 영토</button>
-            <button onclick="showSection('env')" id="tab-env" class="pb-4 text-gray-500 hover:text-blue-600 transition-all">자연 및 지질</button>
-            <button onclick="showSection('value')" id="tab-value" class="pb-4 text-gray-500 hover:text-blue-600 transition-all">다각적 가치</button>
-        </div>
-    </nav>
-
-    <!-- Content Sections -->
-    <main class="max-w-6xl mx-auto py-10 px-6">
-        
-        <!-- Section: Geography -->
-        <section id="section-geo" class="space-y-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- 2 & 3. Physical & Administrative + Territory -->
+    <section id="admin" class="py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-8 bg-blue-600 rounded-full"></span>
-                        지리적 이격 거리 비교
-                    </h2>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        독도는 일본의 오키섬보다 대한민국의 울릉도에 훨씬 더 가까이 위치하고 있습니다. 이는 역사적으로 울릉도 주민들이 독도를 생활권으로 인식하고 이용해 온 강력한 지리적 근거가 됩니다.
+                    <h2 class="text-3xl font-black mb-8">2. 물리적 구성 및 행정 정보</h2>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-6 bg-slate-50 rounded-2xl">
+                            <h4 class="text-blue-600 font-bold mb-2">서도 (西島)</h4>
+                            <p class="text-2xl font-black">88,740 ㎡</p>
+                            <p class="text-xs text-slate-500 mt-2">안용복길 (주민 숙소)</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-2xl">
+                            <h4 class="text-blue-600 font-bold mb-2">동도 (東島)</h4>
+                            <p class="text-2xl font-black">73,297 ㎡</p>
+                            <p class="text-xs text-slate-500 mt-2">이사부길 (경비대·등대)</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        독도는 동도와 서도를 포함한 91개의 섬과 바위로 구성되어 있습니다. 잠실 서울종합운동장 면적의 약 2배에 달하는 영토로서 대한민국의 행정력이 완벽하게 미치고 있습니다.
                     </p>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold text-blue-700 text-sm">울릉도 → 독도</span>
-                                <span class="font-bold text-sm">87.4 km</span>
-                            </div>
-                            <div class="distance-bar">
-                                <div class="distance-fill" style="width: 35.6%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold text-gray-700 text-sm">오키섬(일본) → 독도</span>
-                                <span class="font-bold text-sm">157.5 km</span>
-                            </div>
-                            <div class="distance-bar">
-                                <div class="distance-fill bg-gray-400" style="width: 64.2%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold text-gray-700 text-sm">울진(육지) → 독도</span>
-                                <span class="font-bold text-sm">216.8 km</span>
-                            </div>
-                            <div class="distance-bar">
-                                <div class="distance-fill bg-slate-300" style="width: 88.4%;"></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100">
-                    <div class="aspect-square bg-white rounded-2xl shadow-inner flex flex-col items-center justify-center relative overflow-hidden">
-                        <!-- Simplified Map Concept -->
-                        <div class="absolute top-1/4 left-1/4 flex flex-col items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-xs font-bold text-blue-600 border border-blue-200">울릉도</div>
-                        </div>
-                        <div class="absolute top-1/2 right-1/4 flex flex-col items-center">
-                            <div class="w-8 h-8 bg-blue-600 rounded-full pulse flex items-center justify-center text-white text-[10px] font-bold">독도</div>
-                        </div>
-                        <div class="absolute bottom-1/4 right-1/4 flex flex-col items-center opacity-40">
-                            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-xs font-bold text-gray-600 border border-gray-200">오키섬</div>
-                        </div>
-                        <svg class="absolute inset-0 w-full h-full pointer-events-none">
-                            <line x1="30%" y1="30%" x2="72%" y2="50%" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4"/>
-                            <line x1="75%" y1="53%" x2="75%" y2="72%" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
-                            <text x="45%" y="38%" font-size="12" fill="#2563eb" font-weight="bold">87.4km</text>
-                            <text x="78%" y="65%" font-size="12" fill="#64748b" font-weight="bold">157.5km</text>
-                        </svg>
-                        <div class="mt-4 text-center z-10">
-                            <p class="text-sm font-bold text-blue-800">지리적 위치 관계도</p>
-                            <p class="text-[10px] text-gray-400">북위 37°14'26.8" / 동경 131°52'10.4"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-4 text-blue-700">서도 (西島)</h3>
-                    <ul class="space-y-3">
-                        <li class="flex justify-between border-b pb-2"><span class="text-gray-500">면적</span><span class="font-bold">88,740 ㎡</span></li>
-                        <li class="flex justify-between border-b pb-2"><span class="text-gray-500">최고 높이</span><span class="font-bold">168.5 m</span></li>
-                        <li class="flex justify-between"><span class="text-gray-500">주요 시설</span><span class="font-bold">주민 숙소, 물골</span></li>
-                    </ul>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold mb-4 text-blue-700">동도 (東島)</h3>
-                    <ul class="space-y-3">
-                        <li class="flex justify-between border-b pb-2"><span class="text-gray-500">면적</span><span class="font-bold">73,297 ㎡</span></li>
-                        <li class="flex justify-between border-b pb-2"><span class="text-gray-500">최고 높이</span><span class="font-bold">98.6 m (우산봉)</span></li>
-                        <li class="flex justify-between"><span class="text-gray-500">주요 시설</span><span class="font-bold">경비대, 등대, 헬기장</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section: Administration -->
-        <section id="section-admin" class="hidden space-y-10">
-            <div class="bg-blue-600 text-white p-10 rounded-3xl shadow-xl">
-                <h2 class="text-3xl font-bold mb-4">행정적 지위 및 주소</h2>
-                <p class="mb-8 opacity-90">독도는 대한민국 경상북도 울릉군 울릉읍 독도리에 속하는 고유 영토입니다. 2011년 도로명 주소가 부여되어 더욱 체계적으로 관리되고 있습니다.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="bg-white/20 p-6 rounded-xl border border-white/30">
-                        <div class="text-blue-100 text-sm font-semibold mb-2">동도 (이사부길)</div>
-                        <div class="text-xl font-bold">경상북도 울릉군 울릉읍<br>독도이사부길 55 (독도경비대)</div>
-                    </div>
-                    <div class="bg-white/20 p-6 rounded-xl border border-white/30">
-                        <div class="text-blue-100 text-sm font-semibold mb-2">서도 (안용복길)</div>
-                        <div class="text-xl font-bold">경상북도 울릉군 울릉읍<br>독도안용복길 3 (주민숙소)</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">12</div>
-                    <h3 class="text-xl font-bold mb-3">영해 (12해리)</h3>
-                    <p class="text-sm text-gray-600">독도 기선으로부터 약 22km까지의 범위로 대한민국의 주권이 직접 미치는 바다입니다.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">↑</div>
-                    <h3 class="text-xl font-bold mb-3">영공</h3>
-                    <p class="text-sm text-gray-600">독도의 영토와 영해 상공의 대기권 이내 공간으로 대한민국의 독점적 권리가 보장됩니다.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">200</div>
-                    <h3 class="text-xl font-bold mb-3">EEZ (200해리)</h3>
-                    <p class="text-sm text-gray-600">자원 탐사, 보존 및 관리권을 가지는 배타적 경제수역의 기점이 되는 전략적 가치를 지닙니다.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section: Environment -->
-        <section id="section-env" class="hidden space-y-12">
-            <div class="flex flex-col lg:flex-row gap-12 items-center">
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6">화산 활동으로 빚어낸 역사</h2>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        독도는 해저 약 2,000m 지각 아래에서 용암이 솟구쳐 형성된 화산섬입니다. 지질학적 분석 결과, 독도는 한반도의 다른 화산섬들보다 훨씬 오래된 역사를 가지고 있습니다.
-                    </p>
+                
+                <div id="territory">
+                    <h2 class="text-3xl font-black mb-8">3. 국가 영역의 개념</h2>
                     <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <span class="w-32 py-1 bg-blue-100 text-blue-800 text-center rounded text-sm font-bold">독도</span>
-                            <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-600" style="width: 100%;"></div>
+                        <div class="group bg-slate-50 p-4 rounded-xl hover:bg-blue-50 transition-colors">
+                            <div class="flex justify-between items-center cursor-pointer" onclick="toggleTerritory('territory-1')">
+                                <span class="font-bold">영토 (Territory)</span>
+                                <span class="text-blue-600">+</span>
                             </div>
-                            <span class="text-xs font-bold w-20 text-right text-blue-600">460만 년</span>
+                            <div id="territory-1" class="hidden mt-2 text-sm text-slate-600">지표상의 범위로서 독도의 육지 전체를 의미합니다.</div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <span class="w-32 py-1 bg-gray-100 text-gray-700 text-center rounded text-sm">울릉도</span>
-                            <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-400" style="width: 54%;"></div>
+                        <div class="group bg-slate-50 p-4 rounded-xl hover:bg-blue-50 transition-colors">
+                            <div class="flex justify-between items-center cursor-pointer" onclick="toggleTerritory('territory-2')">
+                                <span class="font-bold">영해 (Territorial Sea)</span>
+                                <span class="text-blue-600">+</span>
                             </div>
-                            <span class="text-xs w-20 text-right">250만 년</span>
+                            <div id="territory-2" class="hidden mt-2 text-sm text-slate-600">해안선으로부터 12해리(약 22km)까지의 주권이 미치는 바다입니다.</div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <span class="w-32 py-1 bg-gray-100 text-gray-700 text-center rounded text-sm">제주도</span>
-                            <div class="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-300" style="width: 26%;"></div>
+                        <div class="group bg-slate-50 p-4 rounded-xl hover:bg-blue-50 transition-colors">
+                            <div class="flex justify-between items-center cursor-pointer" onclick="toggleTerritory('territory-3')">
+                                <span class="font-bold">영공 (Airspace)</span>
+                                <span class="text-blue-600">+</span>
                             </div>
-                            <span class="text-xs w-20 text-right">120만 년</span>
+                            <div id="territory-3" class="hidden mt-2 text-sm text-slate-600">영토와 영해의 수직 상공(대기권 이내)을 의미합니다.</div>
+                        </div>
+                        <div class="group bg-blue-600 p-4 rounded-xl text-white">
+                            <div class="flex justify-between items-center cursor-pointer" onclick="toggleTerritory('territory-4')">
+                                <span class="font-bold">EEZ (배타적 경제수역)</span>
+                                <span class="text-blue-100">+</span>
+                            </div>
+                            <div id="territory-4" class="hidden mt-2 text-sm text-blue-50">영해 바깥쪽 200해리까지의 영역으로, 자원 탐사 및 개발의 권리를 가집니다.</div>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="bg-blue-50 p-6 rounded-2xl">
-                        <div class="text-blue-600 font-bold mb-2">기온</div>
-                        <div class="text-3xl font-black">12.4℃</div>
-                        <p class="text-xs text-gray-500">연평균 기온</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Nature & Geology -->
+    <section id="nature" class="py-24 px-6 gradient-ocean text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-4">4. 자연환경 및 지질학적 특성</h2>
+                <p class="text-blue-200">울릉도, 제주도보다 형님인 독도의 형성사</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-10">
+                    <h3 class="text-2xl font-bold">화산섬 탄생 타임라인</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold">독도 (최초 형성)</span>
+                                <span class="text-blue-300 font-mono">약 460만 년 전</span>
+                            </div>
+                            <div class="timeline-bar"><div class="timeline-fill" style="width: 100%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-blue-200">울릉도</span>
+                                <span class="text-blue-300 font-mono">약 250만 년 전</span>
+                            </div>
+                            <div class="timeline-bar"><div class="timeline-fill" style="width: 54%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-blue-200">제주도</span>
+                                <span class="text-blue-300 font-mono">약 120만 년 전</span>
+                            </div>
+                            <div class="timeline-bar"><div class="timeline-fill" style="width: 26%"></div></div>
+                        </div>
                     </div>
-                    <div class="bg-blue-50 p-6 rounded-2xl">
-                        <div class="text-blue-600 font-bold mb-2">강수량</div>
+                    <div class="p-6 bg-white/10 rounded-2xl border border-white/20">
+                        <h4 class="font-bold mb-2">💡 지질학적 팩트</h4>
+                        <p class="text-sm text-blue-100/80 leading-relaxed">
+                            독도는 울릉도와 동일한 '조면암' 위주로 구성되어 해저 해산을 통해 연결되어 있지만, 일본 오키섬은 '편마암'으로 구성되어 있어 독도와 지질학적 접점이 전혀 없습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-8 bg-blue-900/50 rounded-3xl border border-blue-400/30 text-center">
+                        <div class="text-4xl mb-4">🌡️</div>
+                        <div class="text-3xl font-black">12°C</div>
+                        <p class="text-blue-300 text-sm mt-2">연평균 기온</p>
+                    </div>
+                    <div class="p-8 bg-blue-900/50 rounded-3xl border border-blue-400/30 text-center">
+                        <div class="text-4xl mb-4">☔</div>
                         <div class="text-3xl font-black">1,240mm</div>
-                        <p class="text-xs text-gray-500">연간 강수량</p>
+                        <p class="text-blue-300 text-sm mt-2">연간 강수량</p>
                     </div>
-                    <div class="bg-blue-50 p-6 rounded-2xl col-span-2">
-                        <div class="text-blue-600 font-bold mb-2">기후 특징</div>
-                        <div class="text-lg font-bold">안개가 잦고 비·눈이 많음</div>
-                        <p class="text-xs text-gray-500">연중 맑은 날은 단 60일 내외</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-gray-100 p-8 rounded-2xl border border-gray-200">
-                <h3 class="text-xl font-bold mb-4">지질학적 연관성 분석</h3>
-                <p class="text-sm text-gray-600 mb-6">독도와 울릉도는 해저 산맥을 통해 지질적으로 연결되어 있으나, 일본 오키섬과는 지질 계통이 전혀 다릅니다.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-5 rounded-xl flex items-start gap-4">
-                        <div class="w-4 h-4 bg-blue-500 rounded-full mt-1 shrink-0"></div>
-                        <div>
-                            <div class="font-bold">독도·울릉도 연관성</div>
-                            <div class="text-xs text-gray-500 mt-1 leading-relaxed">화산 활동으로 형성된 '조면암' 위주의 동일 계통 지층 공유. 해산 형태로 해저에서 연결됨</div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-5 rounded-xl flex items-start gap-4">
-                        <div class="w-4 h-4 bg-red-500 rounded-full mt-1 shrink-0"></div>
-                        <div>
-                            <div class="font-bold">일본 오키섬과의 차이</div>
-                            <div class="text-xs text-gray-500 mt-1 leading-relaxed">오키섬은 화산 활동과 무관한 '편마암' 위주 지층. 독도와 지질학적 연관성이 전무함</div>
+                    <div class="col-span-2 p-8 bg-blue-400/20 rounded-3xl border border-blue-400/30">
+                        <h4 class="font-bold text-center mb-4">연간 기후 캘린더</h4>
+                        <div class="flex justify-around items-center">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">60일</div>
+                                <p class="text-xs text-blue-300">맑은 날</p>
+                            </div>
+                            <div class="w-px h-10 bg-blue-400/30"></div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">180일+</div>
+                                <p class="text-xs text-blue-300">눈/비 내리는 날</p>
+                            </div>
+                            <div class="w-px h-10 bg-blue-400/30"></div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">자주 발생</div>
+                                <p class="text-xs text-blue-300">안개/해무</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section: Value -->
-        <section id="section-value" class="hidden space-y-12">
-            <h2 class="text-3xl font-bold text-center mb-12">다각적 가치 분석 : 황금의 섬</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <!-- 5. Multi-dimensional Value -->
+    <section id="value" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl font-black mb-4">5. 독도의 다각적 가치</h2>
+                <p class="text-slate-500">경제, 안보, 과학 모든 분야에서 빛나는 우리 땅</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Economic -->
-                <div class="space-y-6">
-                    <div class="p-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl border border-amber-100 h-full">
-                        <h3 class="text-2xl font-bold text-amber-800 mb-6 flex items-center gap-2">
-                            <span>💰</span> 경제적 가치
-                        </h3>
-                        <div class="space-y-6">
-                            <div>
-                                <div class="font-bold text-lg mb-2">가스 하이드레이트 (미래 에너지)</div>
-                                <div class="text-sm text-gray-600 mb-4">'불타는 얼음'으로 불리는 천연가스 덩어리 약 6억 톤 매장 추정 (국민 30년 사용 가능)</div>
-                                <div class="w-full bg-amber-200 h-4 rounded-full relative">
-                                    <div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-amber-900 uppercase">국민 30년 사용 가능 에너지</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg mb-2">황금어장 (수산 자원)</div>
-                                <div class="text-sm text-gray-600">북쪽의 한류와 남쪽의 난류가 만나는 '조경 수역' 형성. 연어, 송어, 대구, 꽁치, 오징어 등 풍부한 어족 자원</div>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg mb-2">관광 가치</div>
-                                <div class="text-sm text-gray-600">연간 약 13만 명 방문(2008 기준). 직접적 소비 및 파급 효과 약 520억 원 이상 추산</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="bg-slate-50 p-8 rounded-3xl hover:shadow-xl transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-2xl mb-6">💰</div>
+                    <h3 class="text-xl font-bold mb-4">경제적 가치</h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li>
+                            <strong class="text-slate-900">가스하이드레이트:</strong><br> 
+                            '불타는 얼음' 약 6억 톤 매장.<br>전 국민 30년 사용 가능량.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900">황금 어장:</strong><br> 
+                            한류와 난류가 만나는 조경수역으로 어자원이 매우 풍부함.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900">관광 및 경제 효과:</strong><br> 
+                            연간 약 520억 원 이상의 경제 효과 추산.
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Strategic & Scientific -->
-                <div class="space-y-6">
-                    <div class="p-8 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl border border-indigo-100 h-full">
-                        <h3 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center gap-2">
-                            <span>📡</span> 전략적·학술적 가치
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 bg-indigo-600 text-white rounded-lg flex items-center justify-center shrink-0">🛡️</div>
-                                <div>
-                                    <div class="font-bold">군사·안보적 요충지</div>
-                                    <p class="text-sm text-gray-600 mt-1">동해상의 해군·공군 방위 기지로서 중요성. 해상 교통로 모니터링 및 선박 긴급 구조 거점</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 bg-indigo-600 text-white rounded-lg flex items-center justify-center shrink-0">🔬</div>
-                                <div>
-                                    <div class="font-bold">기상 및 해양 과학 기지</div>
-                                    <p class="text-sm text-gray-600 mt-1">러시아, 일본, 북한 등 주변국 기상 변화를 조기 파악하는 예보의 핵심 지점. 해양 생태계 변화 연구</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 bg-indigo-600 text-white rounded-lg flex items-center justify-center shrink-0">⛰️</div>
-                                <div>
-                                    <div class="font-bold">지질학적 가치의 보고</div>
-                                    <p class="text-sm text-gray-600 mt-1">세계적으로 드문 '해산(Seamount)'의 성장과 사멸 과정을 보여주는 화산 지질학 연구의 최적지</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Strategic -->
+                <div class="bg-slate-50 p-8 rounded-3xl hover:shadow-xl transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-2xl mb-6">🛡️</div>
+                    <h3 class="text-xl font-bold mb-4">전략적 가치</h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li>
+                            <strong class="text-slate-900">동해 방위의 거점:</strong><br> 
+                            러시아, 일본 등 주변국 해군·공군 이동을 모니터링하는 전략적 안보 요충지.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900">해상 교통 및 구조:</strong><br> 
+                            주요 해상 운송로의 교차점이며, 긴급 대피소 및 구조 기지로 기능.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Scientific -->
+                <div class="bg-slate-50 p-8 rounded-3xl hover:shadow-xl transition-shadow border border-slate-100">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl mb-6">🔬</div>
+                    <h3 class="text-xl font-bold mb-4">학술적 가치</h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li>
+                            <strong class="text-slate-900">해양과학기지:</strong><br> 
+                            지각의 변화, 해양 생태계, 지구 온난화 등을 연구하는 최적의 야외 실험장.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900">기상 예보의 핵심:</strong><br> 
+                            동해의 기상 변화를 가장 먼저 감지하는 예보의 전초기지.
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer / Take Action -->
-    <footer class="bg-slate-900 text-white py-20 px-6 mt-20">
+    <!-- 6. Efforts to Protect -->
+    <section class="py-24 px-6 bg-slate-50 border-t border-slate-200">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">독도, 대한민국 국민이 함께 지킵니다</h2>
-            <p class="text-slate-400 mb-12 leading-relaxed">
-                독도는 단순한 섬 그 이상입니다. 우리 역사의 자부심이며, 미래 에너지의 창고이자, 동해의 평화를 지키는 든든한 방패입니다. <br>
-                민간 단체와 정부, 그리고 국민 모두의 관심이 독도의 내일을 만듭니다.
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition-colors">
-                    <div class="text-xs text-slate-500 uppercase mb-2">실효적 지배</div>
-                    <div class="text-lg font-bold">독도경비대 상주</div>
+            <h2 class="text-3xl font-black mb-12">6. 독도를 수호하는 노력</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div class="bg-white p-6 rounded-2xl shadow-sm">
+                    <h4 class="font-bold text-blue-700 mb-2">실효적 지배의 역사</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        최종덕 씨는 독도로 주민등록을 이전하여 최초의 거주민이 되었고, 이후 현재까지 독도 경비대가 상주하며 완벽한 주권을 행사하고 있습니다.
+                    </p>
                 </div>
-                <div class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition-colors">
-                    <div class="text-xs text-slate-500 uppercase mb-2">영토 교육</div>
-                    <div class="text-lg font-bold">동북아역사재단</div>
-                </div>
-                <div class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition-colors">
-                    <div class="text-xs text-slate-500 uppercase mb-2">방문 및 홍보</div>
-                    <div class="text-lg font-bold">독도입도종합안내</div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm">
+                    <h4 class="font-bold text-blue-700 mb-2">국민적 관심과 교육</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        동북아역사재단과 독도수호대 등 민간/정부 단체들이 '독도의 날' 제정 및 독도체험관 운영을 통해 올바른 역사를 전파하고 있습니다.
+                    </p>
                 </div>
             </div>
-            
-            <p class="mt-20 text-slate-500 text-sm italic">
-                본 정보는 제공된 기초 자료를 바탕으로 재구성되었습니다. 독도의 더 자세한 정보는 독도연구소 및 관계기관에서 확인 가능합니다.
-            </p>
+            <div class="mt-16 inline-flex flex-col items-center">
+                <p class="text-slate-500 text-sm mb-4">우리 모두의 관심이 독도를 지키는 힘입니다.</p>
+                <button class="px-10 py-4 bg-blue-800 text-white rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg">독도 사랑 참여하기</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-slate-900 text-slate-500 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="mb-2">본 문서는 제공된 기초 자료를 바탕으로 재구성된 종합 브리핑 대시보드입니다.</p>
+            <p>&copy; 2024 DOKDO BRIEFING - 독도는 대한민국의 고유 영토입니다.</p>
         </div>
     </footer>
 
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.getElementById('section-geo').classList.add('hidden');
-            document.getElementById('section-admin').classList.add('hidden');
-            document.getElementById('section-env').classList.add('hidden');
-            document.getElementById('section-value').classList.add('hidden');
-
-            // Show current section
-            document.getElementById('section-' + sectionId).classList.remove('hidden');
-
-            // Update Tab styles
-            const tabs = ['geo', 'admin', 'env', 'value'];
-            tabs.forEach(tab => {
-                const tabEl = document.getElementById('tab-' + tab);
-                if (tab === sectionId) {
-                    tabEl.classList.add('tab-active');
-                    tabEl.classList.remove('text-gray-500');
-                } else {
-                    tabEl.classList.remove('tab-active');
-                    tabEl.classList.add('text-gray-500');
-                }
-            });
-
-            // Re-trigger bar animations for geo if selected
-            if (sectionId === 'geo') {
-                const fills = document.querySelectorAll('.distance-fill');
-                fills.forEach(fill => {
-                    const width = fill.style.width;
-                    fill.style.width = '0';
-                    setTimeout(() => {
-                        fill.style.width = width;
-                    }, 50);
-                });
+        function simulateVisibility(origin) {
+            const dokdo = document.getElementById('horizon-dokdo');
+            const text = document.getElementById('visibility-text');
+            
+            if (origin === 'ulleung') {
+                dokdo.style.opacity = '1';
+                dokdo.style.transform = 'scale(1)';
+                text.innerText = '울릉도(87.4km)에서는 독도가 수평선 위로 선명하게 보입니다.';
+                text.className = 'text-sm text-blue-300';
+            } else {
+                dokdo.style.opacity = '0';
+                dokdo.style.transform = 'scale(0.5)';
+                text.innerText = '오키섬(157.5km)에서는 지구 곡률과 거리상 독도가 전혀 보이지 않습니다.';
+                text.className = 'text-sm text-red-300';
             }
         }
 
-        // Initialize view
-        window.onload = function() {
-            showSection('geo');
+        function toggleTerritory(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
         }
+
+        // Initialize animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('timeline-fill')) {
+                        entry.target.style.width = entry.target.dataset.width;
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-fill').forEach(fill => {
+            fill.dataset.width = fill.style.width;
+            fill.style.width = '0';
+            observer.observe(fill);
+        });
     </script>
 </body>
 </html>
