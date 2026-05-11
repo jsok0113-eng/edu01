@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도 수호와 지리적 가치 - 플래시 카드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1621358049430-80c497475c97?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Flash Card Styles */
+        .flash-card {
+            perspective: 1000px;
+            height: 220px;
+            cursor: pointer;
+        }
+
+        .flash-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flash-card.is-flipped .flash-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-front {
+            background-color: white;
+            border: 2px solid #e2e8f0;
+        }
+
+        .card-back {
+            background-color: #ffffff;
+            border: 2px solid #3b82f6;
+            transform: rotateY(180deg);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .hint-text {
+            position: absolute;
+            bottom: 1rem;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="px-4">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">독도 용어 학습 카드</h1>
+            <p class="text-lg md:text-xl font-light">카드를 클릭하여 뜻을 확인하고 학습해 보세요!</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-around font-medium text-gray-600">
+            <a href="#territory" class="hover:text-blue-600 transition">영역</a>
+            <a href="#geography" class="hover:text-green-600 transition">지리/자원</a>
+            <a href="#guardians" class="hover:text-red-600 transition">수호인</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- 1. 국가 영역 관련 용어 -->
+        <section id="territory" class="mb-16">
+            <div class="flex items-center mb-8">
+                <div class="w-2 h-8 bg-blue-600 mr-3 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-gray-800">국가 영역 학습</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-blue-100 text-blue-600">국가 영역</span>
+                            <h3 class="text-2xl font-bold text-gray-800">영토</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">국가의 주권이 미치는 지표상의 범위를 말합니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-blue-100 text-blue-600">국가 영역</span>
+                            <h3 class="text-2xl font-bold text-gray-800">영해</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">해안선으로부터 보통 12해리(약 22km)까지 설정되는 바다 영역입니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-blue-100 text-blue-600">국가 영역</span>
+                            <h3 class="text-2xl font-bold text-gray-800">영공</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">영토와 영해의 수직 상공으로, 보통 대기권 이내를 포함합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 독도의 지리 및 자원 관련 용어 -->
+        <section id="geography" class="mb-16">
+            <div class="flex items-center mb-8">
+                <div class="w-2 h-8 bg-green-600 mr-3 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-gray-800">지리 및 자원 학습</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-green-100 text-green-600">지리</span>
+                            <h3 class="text-2xl font-bold text-gray-800">가스 하이드레이트</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">'불타는 얼음'이라 불리는 고체 에너지원으로, 독도 인근에 막대한 양이 매장되어 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-green-100 text-green-600">지질</span>
+                            <h3 class="text-2xl font-bold text-gray-800">조면암</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">독도를 구성하는 주요 암석입니다. 독도는 화산 활동으로 생긴 해산임을 증명합니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-green-100 text-green-600">전략</span>
+                            <h3 class="text-2xl font-bold text-gray-800">지정학적 가치</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">방위 거점 및 해상 운송로로서 독도가 가지는 전략적 중요성을 뜻합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 독도를 수호하는 사람들 관련 용어 -->
+        <section id="guardians" class="mb-16">
+            <div class="flex items-center mb-8">
+                <div class="w-2 h-8 bg-red-600 mr-3 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-gray-800">수호하는 사람들 학습</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-red-100 text-red-600">역사</span>
+                            <h3 class="text-2xl font-bold text-gray-800">독도의용수비대</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">1950년대 한국전쟁 혼란기에 일본의 침투에 맞서 민간인이 자발적으로 조직한 수호 단체입니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-red-100 text-red-600">경비</span>
+                            <h3 class="text-2xl font-bold text-gray-800">독도경비대</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">현재 독도에 상시 주둔하며 영토 수호를 책임지고 있는 경찰 조직입니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flash-card" onclick="flipCard(this)">
+                    <div class="flash-card-inner">
+                        <div class="card-front">
+                            <span class="category-badge bg-red-100 text-red-600">시민</span>
+                            <h3 class="text-2xl font-bold text-gray-800">독도수호대</h3>
+                            <span class="hint-text"><i class="fas fa-sync-alt mr-1"></i>클릭해서 뜻 보기</span>
+                        </div>
+                        <div class="card-back">
+                            <p class="text-gray-700 font-medium">'독도의 날' 제정 운동 등을 통해 독도 역사를 알리는 시민단체입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-10 px-4 text-center">
+        <p class="mb-2">대한민국의 아침을 가장 먼저 여는 곳, 독도</p>
+        <p class="text-xs">© 2024 독도 플래시 카드 학습관</p>
+    </footer>
+
+    <script>
+        function flipCard(card) {
+            card.classList.toggle('is-flipped');
+        }
+    </script>
+</body>
+</html>
